@@ -3,7 +3,7 @@
  * @Author: yuyi
  * @Date: 2024-06-16 14:24:42
  * @LastEditors: yuyi
- * @LastEditTime: 2024-06-16 20:39:46
+ * @LastEditTime: 2024-06-16 21:35:44
  */
 import { fileURLToPath, URL } from 'node:url'
 import checker from 'vite-plugin-checker'
@@ -20,8 +20,11 @@ export default defineConfig({
     vue(),
     vueJsx(),
     checker({
-      // e.g. use TypeScript check
       typescript: true,
+      vueTsc: true,
+      eslint: {
+        lintCommand: 'eslint "./src/**/*.{vue,js,ts,jsx,tsx}"' // 对你的文件类型进行检查
+      }
     }),
   ],
   resolve: {
